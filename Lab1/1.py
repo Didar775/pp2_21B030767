@@ -1,1 +1,2 @@
-print(5**6)
+n=int(input())
+print(~n)
