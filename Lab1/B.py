@@ -6,4 +6,4 @@ for i in range (len(s)):
 if sum>300:
     print("It is tasty!")
 else :
-    print("Oh, no!")
+    print("Oh, no! ")
