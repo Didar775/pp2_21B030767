@@ -1,12 +1,9 @@
-s=input()
-cnt1=0
-cnt2=0
-for i in range(len(s)):
-    if s[i]!=" ":
-       cnt1=cnt1+1 
-       if cnt1>=3:
-        for j in range(cnt1):
-           print(s[j])
-    cnt1=0
+n=int(input())
+arr=[]
+for i in range(n):
+    s=input()
+    arr.append(s)
 
-# I am fine and what about u?
+for i in range(n):
+    if arr[i].find("@gmail.com")>0:
+        print(arr[i].replace('@gmail.com',""))
