@@ -1,27 +1,28 @@
 n=int(input())
-dem=[]
+dem={}
 for i in range(n):
-    dem.append(input().split())
+    d,w=input().split()
+  
+    if w in dem:
+         dem[w]+=1
+    else:
+         dem[w]=1
 
-m=int(input())
-hun=[]
-for i in range(m):
-    hun.append(input().split())
-count=0
-size=0
-for i in range(m):
-     for j in range(n):
-        count=0
-        if dem[j][1]==hun[i][1]:
-            count+=1
-        size+=count
-        if count<int(hun[i][2]) and n>size:
-          n-=size
+k=int(input())
+hun={}
+kill=0
+for i in range(k):
+    h,a,f=input().split()
+    if a in hun:
+      hun[a]+=int(f)
+    else:
+      hun[a]=int(f)
 
-print("Demons left:",end=" ")
-print(n)
+for i in dem:
+    for j in hun:
+        if i==j and hun[j]-dem[i]>=0:
+            n-=dem[i]
+        elif i==j and hun[j]-dem[i]<0:
+            n-=hun[j]
 
-
-
-           
-
+print("Demons left:", n)
