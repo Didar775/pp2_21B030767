@@ -1,24 +1,14 @@
-import math
-x1,y1=map(int,input().split())
-n=int(input())
-arr_x=[]
-arr_y=[]
-arr_l=[]
+def rak(x1, x2, y1, y2):
+    return ((x1 - x2)**2 + (y1 - y2)**2)**1/2
 
-for i in range(n):
-    x2,y2=input().split()
-    x2=int(x2)
-    y2=int(y2)
-    arr_x.append(x2)
-    arr_y.append(y2)
-    l=math.sqrt((x2-x1)**2+(y2-y1)**2)
-    arr_l.append(l)
-   
-arr_l.sort()
 
-for i in range(n):
-    for j in range(n):
-       a=math.sqrt((arr_x[j]-x1)**2+(arr_y[j]-y1)**2)
-       if arr_l[i]==a:
-          print(arr_x[j], arr_y[j])
-         
+x1, y1 = list(map(int, input().split()))
+n = int(input())
+arr = []
+for _ in range(n):
+    x2, y2 = map(int, input().split())
+    a = rak(x1, x2, y1, y2)
+    arr.append((x2, y2, a))
+for x2, y2, a in sorted(arr, key = lambda x: (x[2])):
+    print(x2, y2)
+
