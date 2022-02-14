@@ -11,6 +11,7 @@ for i in range(n):
 k=int(input())
 hun={}
 kill=0
+    
 for i in range(k):
     h,a,f=input().split()
     if a in hun:
@@ -25,4 +26,4 @@ for i in dem:
         elif i==j and hun[j]-dem[i]<0:
             n-=hun[j]
 
-print("Demons left:1/", n)
+print("Demons left:", n)
