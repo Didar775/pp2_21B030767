@@ -25,4 +25,4 @@ for i in dem:
         elif i==j and hun[j]-dem[i]<0:
             n-=hun[j]
 
-print("Demons left:", n)
+print("Demons left:1/", n)
