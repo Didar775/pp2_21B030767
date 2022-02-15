@@ -7,15 +7,12 @@ for i in s:
     if i in b.keys():
         l.append(i)
         cnt+=1
-
     else:
         if l:
             top=l.pop()
 
             if b[top]==i:
                 cnt=0
-
-
 if cnt==0 and len(l)==0:
     print("Yes")
 else:
