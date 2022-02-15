@@ -16,7 +16,6 @@ for i in s:
 
             if b[top]==i:
                 l.pop()
-                
 if  len(l)==0:
     print("Yes")
 else:
