@@ -1,10 +1,11 @@
-arr=list(map(int,input().split()))
-n=len(arr)
-i=arr[0]
-while n!=0:
-   k= arr[i]
-   i=k
-   n-=1
+l = list(map(int, input().split()))
+pos=len(l)-1 #4
 
-   
-    
+for i in  range(len(l)-2,-1,-1):
+    if i+l[i]>=pos:       #2 3 1 1 4
+        pos=i
+
+if pos==0:
+    print(1)
+else:
+    print(0)
