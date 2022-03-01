@@ -1,18 +1,8 @@
-def avarage_imdb(arr):
-    sum=0
-    for dic in arr:
-        for i in dic:
-            if i=="imdb":
-                sum+=dic[i]
-                
-    return(sum/(len(arr)))
-                
-                
-            
-            
-            
 
 movies = [
+
+
+
 {
 "name": "Usual Suspects", 
 "imdb": 7.0,
@@ -89,4 +79,11 @@ movies = [
 "category": "Romance"
 }
 ]
-print(avarage_imdb(movies))
+def movies_top(dict):
+    if dict['imdb']>5.5:
+        print(dict["name"])
+
+
+
+for i in movies:
+    movies_top(i)

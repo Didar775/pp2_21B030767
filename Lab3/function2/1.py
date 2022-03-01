@@ -1,16 +1,3 @@
-def avarage_category(arr,s):
-    sum=0
-    cnt=0
-    for dic in arr:
-        for i in dic:
-            if dic[i] == s:
-                sum+=dic['imdb']
-                cnt+=1
-                
-    return sum/cnt
-                    
-                    
-            
 movies = [
 {
 "name": "Usual Suspects", 
@@ -88,5 +75,15 @@ movies = [
 "category": "Romance"
 }
 ]
-s=input()
-print(avarage_category(movies,s))
+
+
+def movies_imdv(s):
+    for i in movies:
+        if i["name"]==s :
+            if i["imdb"]>5.5:
+                return True
+        
+            return False
+            
+s=str(input())
+print(movies_imdv(s))

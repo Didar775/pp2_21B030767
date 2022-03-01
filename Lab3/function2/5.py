@@ -1,12 +1,3 @@
-def imbd_less(dic):
-    for i in dic:
-        if i=='imdb':
-            if dic[i]>5.5:
-               print(dic)
-            
-            
-            
-
 movies = [
 {
 "name": "Usual Suspects", 
@@ -85,5 +76,17 @@ movies = [
 }
 ]
 
-for i in range(len(movies)-1):
-    imbd_less(movies[i])
+def average_IMDB_Category(s):
+    sum=0
+    cnt=0
+    for dict in movies:
+        if dict['category']==s:
+            sum+=dict['imdb']
+            cnt+=1
+    n=round(sum/cnt,2)
+    print("Average IMDB for this category is:",n)
+    
+
+
+s=input()
+average_IMDB_Category(s)

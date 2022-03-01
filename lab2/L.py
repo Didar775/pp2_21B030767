@@ -1,6 +1,7 @@
 s=input()
 
 b={"(":")","{":"}","[":"]"}
+
 if s[0] in b.values():
     print("No")
     exit()

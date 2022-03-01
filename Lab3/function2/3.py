@@ -1,12 +1,3 @@
-def imbd_less(dic):
-    for i in dic:
-        if i=='imdb':
-            if dic[i]>5.5:
-                return True
-            
-            
-            
-
 movies = [
 {
 "name": "Usual Suspects", 
@@ -85,8 +76,11 @@ movies = [
 }
 ]
 
-for i in range(len(movies)-1):
-    if imbd_less(movies[i])==True:
-        for j in movies[i]:
-            if j == "name":
-                print(movies[i][j])
+def category(s):
+    for i in movies:
+        if i['category']==s:
+            print(i['name'])
+s=input("Enter a category of movie: ")
+category(s)
+
+
