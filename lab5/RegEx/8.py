@@ -1,5 +1,4 @@
 import re
 text=input()
-l=[]
-l=re.findall(r'[A-B][^A-B]*',text)
+l=re.findall(r'[A-Z][^A-Z]*',text)
 print(*l)
