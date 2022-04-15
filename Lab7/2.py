@@ -1,10 +1,9 @@
-
 import pygame
 import os
 
 pygame.init()
 
-screen = pygame.display.set_mode((,460))
+screen = pygame.display.set_mode((394,460))
 pygame.display.set_caption('Music')
 image_fone = pygame.image.load('lab7/music.jpg')
 image_fone = pygame.transform.scale(image_fone,(394,460))
@@ -13,6 +12,7 @@ image_fone = pygame.transform.scale(image_fone,(394,460))
 l = os.listdir(r'C:\My musics')
 pygame.mixer.music.load(os.path.join(r'C:\My musics',l[0]))
 pygame.mixer.music.play()
+print(l)
 
 def music_change(pos):
     if pos < 0: i = len(l)-1

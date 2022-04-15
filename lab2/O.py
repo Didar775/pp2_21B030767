@@ -20,7 +20,7 @@ def f(x):
             letter=x[i]
  return dig
 
-s=input().split("+")
+s=input().split("+") 
 for i in s:
     sum+=int(f(i))
     
