@@ -207,7 +207,7 @@ while True:
     
     font = pygame.font.Font(None,30)
     text = font.render(f'{cnt-1}', True, BLACK)
-    screen.blit(text,[550,0])
+    screen.blit(text,[555,5])
 
     screen.blit(C1.image,(520,0))
     P1.draw()
