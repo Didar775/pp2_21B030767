@@ -68,7 +68,7 @@ class Snake:
         if self.elements[0][1] < 0:
             self.elements[0][1] = 600
 
-        font2 = pygame.font.Font(None,30)
+        font1 = pygame.font.Font(None,30)
         text_level = font1.render(f'Level: {LEVEL}', True, (255,255,0))
         screen.blit(text_level,(500,0))
 
