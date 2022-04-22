@@ -15,14 +15,11 @@ pygame.mixer.music.play()
 print(l)
 
 def music_change(pos):
-    if pos < 0: i = len(l)-1
-    elif pos > len(l): pos = 0
     pygame.mixer.music.load(os.path.join(r'C:\My musics',l[pos]))
     pygame.mixer.music.play()
 
 clock = pygame.time.Clock()
 done = False
-flpayse = False
 pos = 0
 vol = 0.05
 while not done:
@@ -33,13 +30,18 @@ while not done:
   
     screen.blit(image_fone,(0,0))
     flpayse = False 
+
+    
+
     if pressed[pygame.K_SPACE]: pygame.mixer.music.pause()
     if pressed[pygame.K_RCTRL]: pygame.mixer.music.unpause()
     if pressed[pygame.K_RIGHT]:
         pos += 1 
+        if pos > len(l) - 1: pos = 0
         music_change(pos)
     if pressed[pygame.K_LEFT]:
         pos -= 1
+        if pos < 0: pos = len(l)-1
         music_change(pos)
     if pressed[pygame.K_UP]: 
         vol += 0.05
