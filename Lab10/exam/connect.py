@@ -1,12 +1,6 @@
 import psycopg2
 from config import config
-# config=psycopg2.connect(
-#     host='localhost'
-#     user='postgres'
-#     password='Zangar.2012'
-#     database='postgres'
-#     port='5432'
-# ) 
+
 def connect():
     conn = None
     try:
