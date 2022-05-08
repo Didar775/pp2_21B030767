@@ -17,10 +17,10 @@ def get_info_all(get_what):
      
         cur = conn.cursor()
         cur.execute(sql)
-        table = cur.fetchall()
+        table = list(cur.fetchall())
 
         for row in table:
-            print(row)
+            print(*row)
         conn.commit()
       
       

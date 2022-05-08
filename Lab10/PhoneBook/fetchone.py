@@ -1,3 +1,4 @@
+from numpy import size
 import psycopg2
 from config import config
 
@@ -33,8 +34,8 @@ def get_info_all(get_what):
 
 
 # to get cettain record
-def get_info_certain(item , username):
-    sql = f'SELECT * FROM phonebookk WHERE'
+def get_info_certain(sizee):
+    sql = f'SELECT * FROM phonebookk'
 
     try:
         conn = None
@@ -43,21 +44,21 @@ def get_info_certain(item , username):
 
         cur = conn.cursor()
         cur.execute(sql)
-        row = cur.fetchone()
+        rows = cur.fetchmany(sizee)
+        for row in rows:
+            print(row)
 
-        print(row)
+        
     
     except Exception as e:
         print(str(e))
 
 
-get = input('What you want to get(all_record,first_name, last_name, phone_number,fetchon): ')
+get = input('What you want to get(all_record,first_name, last_name, phone_number,fetchone): ')
 
 if get == 'fetchone':
-    item = input('Querying data from the tables with last_name or first_name: ')
-    username = input(f'Enter {item}: ')
-    get_info_certain(item, username)
-    
+    sizee = int(input('Enter size: '))
+    get_info_certain(sizee)
 else:
     get_info_all(get)
 

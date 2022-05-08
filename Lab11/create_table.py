@@ -4,9 +4,9 @@ from config import config
 def create_table():
     command = """
         CREATE TABLE Phonebookk (
-            First_name VARCHAR (20) UNIQUE NOT NULL,
-            Last_name VARCHAR (20)  UNIQUE NOT NULL,
-            Phone_number VARCHAR (17) UNIQUE NOT NULL
+            First_name VARCHAR (100) UNIQUE NOT NULL,
+            Last_name VARCHAR (100)  UNIQUE NOT NULL,
+            Phone_number VARCHAR (100) UNIQUE NOT NULL
         );
     """
     conn = None
