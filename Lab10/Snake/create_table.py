@@ -1,22 +1,22 @@
 import psycopg2
 from config import config
 
-def update_user(user_id, username):
+def create_table():
     sql = """
-    update accounts
-    set adress = %s
-    where username = %s
+        CREATE TABLE snake(
+        Username VARCHAR (50) UNIQUE NOT NULL ,
+        User_score VARCHAR (50) NOT NULL,
+        User_level VARCHAR (50) NOT NULL
+        );
+
     """
     conn = None
-   
     try:
         params = config()
         conn = psycopg2.connect(**params)
         cur = conn.cursor()
-        cur.execute(sql, (user_id, username))
-     
+        cur.execute(sql)
         conn.commit()
-        cur.close()
 
     except Exception as e:
         print(str(e))
@@ -24,7 +24,4 @@ def update_user(user_id, username):
         if conn is not None:
             conn.close()
 
-id = input()
-username = input()
-update_user(id, username)
-    
+create_table()

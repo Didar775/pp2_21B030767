@@ -1,15 +1,23 @@
 import os
-import pygame, sys,time
+import pygame, sys, psycopg2
 from random import randint
 import time , datetime
+from config import config
+from insert_username import insert_user , update, check
 
 pygame.init()
+
+username = input('Enter username: ')
+
+
+
 screen = pygame.display.set_mode((600, 600))
 pygame.display.set_caption('Snake')
 SCORE = 0
 LEVEL = 0
+# enter(username, SCORE, LEVEL)
 
-background = pygame.image.load(r'Lab8\phone.png')
+background = pygame.image.load(r'C:\pp2_21B030767\Lab10\Snake\phone.png')
 background =pygame.transform.scale(background,(600,600))
 
 pygame.mixer.music.load(r'C:\My musics\Snake.mp3')
@@ -103,7 +111,22 @@ class Food(pygame.sprite.Sprite):
     def draw(self):
         pygame.draw.circle(screen, (255, 0, 0), (self.x, self.y), self.radius)
 
-    
+
+def pause():
+    pressed = pygame.key.get_pressed()
+    paused = 0
+    while paused%2 == 0:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+
+            if pressed[pygame.K_SPACE]:
+                paused += 1
+            
+            elif pressed[pygame.K_q]:
+                pygame.quit()
+                quit()
+
 
 snake = Snake(100, 100)
 food1 = Food(6)
@@ -121,9 +144,20 @@ while True:
     clock.tick(snake.speed)
     pressed = pygame.key.get_pressed()
     for event in pygame.event.get():
+        
         if event.type == pygame.QUIT:
+            
+            if check(username) == 1:
+                update(username,SCORE,LEVEL)
+            else:
+                insert_user(username,SCORE,LEVEL)
+
             pygame.quit()
             sys.exit()
+
+       
+
+
 
         if pressed[pygame.K_RIGHT] and snake.dx != -d:
             snake.dx = d
@@ -137,6 +171,8 @@ while True:
         if pressed[pygame.K_DOWN] and snake.dy != -d:
             snake.dx = 0
             snake.dy = d
+        elif pressed[pygame.K_SPACE]:
+            pause()
     
 
 
@@ -179,3 +215,5 @@ while True:
     snake.draw()
     food1.draw()
     pygame.display.update()
+
+

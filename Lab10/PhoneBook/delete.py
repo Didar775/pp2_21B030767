@@ -1,19 +1,16 @@
 import psycopg2
 from config import config
 
-def update_user(user_id, username):
-    sql = """
-    update accounts
-    set adress = %s
-    where username = %s
-    """
+def delete(username):
+
+    sql = "DELETE FROM phonebookk where first_name = %s"
     conn = None
-   
+
     try:
         params = config()
         conn = psycopg2.connect(**params)
         cur = conn.cursor()
-        cur.execute(sql, (user_id, username))
+        cur.execute(sql, [username])
      
         conn.commit()
         cur.close()
@@ -24,7 +21,6 @@ def update_user(user_id, username):
         if conn is not None:
             conn.close()
 
-id = input()
-username = input()
-update_user(id, username)
-    
+first_name = input("Enter first name of item which you want to delete: ")
+delete(first_name)
+        
